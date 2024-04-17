@@ -3,12 +3,13 @@ Summary:	AdvanceSCAN ROMs Manager
 Summary(pl.UTF-8):	AdvanceSCAN - zarządca ROM-ów
 Name:		advancescan
 Version:	1.18
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/File
 #Source0Download: https://github.com/amadvance/advancescan/releases
 Source0:	https://github.com/amadvance/advancescan/releases/download/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	85d964fe0d34a5722ce923f7fbb8a115
+Patch0:		%{name}-throw.patch
 URL:		http://www.advancemame.it/scan-readme
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
@@ -24,6 +25,7 @@ emulatorów AdvanceMAME, AdvanceMESS i innych pochodnych MAME.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
